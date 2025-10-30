@@ -1,22 +1,17 @@
+import { pick } from '../helpers/pick.js';
+import { applyLimit, sortByDate } from '../helpers/sort.js';
 import products from './products.json' with { type: 'json' };
 import fs from "fs"
-
-const SORT = {
-    ASC: "asc",
-    DESC: "desc"
-}
 
 const DATA_PATH = './src/database/products.json';
 
 export function getAllProducts(limit, sort) {
     let result = [...products]
     if (sort) {
-        const orderBy = sort.toLowerCase();
-        if (orderBy === SORT.ASC) result.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-        if (orderBy === SORT.DESC) result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        result = sortByDate(result, sort)
     }
     if (limit) {
-        result = result.slice(0, parseInt(limit));
+        result = applyLimit(result, limit)
     }
     return result
 }
@@ -35,12 +30,9 @@ export function getOneProduct(id, fieldsQuery) {
     if (!fieldsQuery) {
         return product
     }
-    const fields = fieldsQuery.split(",");
-    const picked = {};
-    for (const field of fields) {
-        if (field in product) picked[field] = product[field];
-    };
-    return picked;
+    const fieldsPick = fieldsQuery.split(",")
+    const result = pick(product, fieldsPick)
+    return result;
 }
 
 export function updateProduct(id, updateData) {

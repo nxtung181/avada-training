@@ -1,5 +1,15 @@
 [
   {
+    "id": 2002,
+    "name": "Rustic Silk Fish",
+    "price": 124.79,
+    "description": "Introducing the Qatar-inspired Salad...",
+    "product": "Computers",
+    "color": "sky blue",
+    "image": "https://picsum.photos/seed/djI8zWUrM/300/300?blur=8",
+    "createdAt": "2025-10-30T05:57:54.008Z"
+  },
+  {
     "id": 2001,
     "name": "Rustic Silk Fish",
     "price": 124.79,
