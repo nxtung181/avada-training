@@ -1,14 +1,16 @@
-import React from "react";
 import TodoList from "./components/todolist/TodoList.js";
 import Header from "./components/header/Header.js";
 import { AppProvider } from '@shopify/polaris';
+import { Frame } from "@shopify/polaris";
 
 function App() {
   return (
     <AppProvider i18n={{}}>
-      <Header>
+      <Frame
+        topBar={<Header />}
+      >
         <TodoList />
-      </Header>
+      </Frame>
     </AppProvider>
   );
 }

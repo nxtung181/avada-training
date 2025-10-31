@@ -1,9 +1,9 @@
-const API_URL = 'http://localhost:5000/api/todos';
+export const API_URL = 'http://localhost:5000/api/todos';
 
-export const getTodos = async (limit = 8) => {
-  const response = await fetch(`${API_URL}?limit=${limit}`);
-  return response.json();
-};
+// export const getTodos = async (limit = 8) => {
+//   const response = await fetch(`${API_URL}?limit=${limit}`);
+//   return response.json();
+// };
 
 export const createTodo = async (title) => {
   const response = await fetch(API_URL, {
