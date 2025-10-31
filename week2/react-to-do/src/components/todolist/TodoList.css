@@ -1,0 +1,15 @@
+.selected-actions {
+  position: relative;
+  margin-top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 12px 20px;
+  z-index: 1000;
+  width: 300px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
